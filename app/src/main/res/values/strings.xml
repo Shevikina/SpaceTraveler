@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name" translatable="false">Space traveler</string>
+    <string name="unique_offers_title">Unique offers</string>
+    <string name="description">Description</string>
+    <string name="new_button">New</string>
+    <string name="send_application_button">Send an application</string>
+    <string name="company_letter">The best offers from our company are on this screen.
+
+        Please check with managers for price and date.
+
+        Best wishes,
+        StarGalaxy Company!</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="unique_offers_title">Уникальные предложения</string>
+    <string name="description">Описание</string>
+    <string name="new_button">Новинка</string>
+    <string name="send_application_button">Отправить заявку</string>
+    <string name="company_letter">На этой вкладке собраны самые интересные предложения от нашей компании.
+
+        С ценами и датами вылета можно ознакомиться у менеджеров.
+
+        С наилучшими пожеланиями,
+        Компания “StarGalaxy”!</string>
+</resources>
