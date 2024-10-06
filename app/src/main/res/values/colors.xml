@@ -8,4 +8,5 @@
     <color name="OnSurfaceColor">#A4A8B3</color>
     <color name="BackgroundColor">#EFFAFD</color>
     <color name="OnBackgroundColor">#071738</color>
+    <color name="back_logo">#FFFFFF</color>
 </resources>
