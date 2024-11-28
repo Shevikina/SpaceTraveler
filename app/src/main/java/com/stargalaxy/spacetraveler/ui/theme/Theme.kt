@@ -3,35 +3,71 @@ package com.stargalaxy.spacetraveler.ui.theme
 import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ColorScheme
+import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    background = BackgroundColor,
+    primary = PrimaryColor,
+    secondary = SecondaryColor,
+    surface = SurfaceColor,
+    tertiary = Pink80,
+    onPrimary = OnPrimaryColor,
+    onSecondary = OnSecondaryColor,
+    onBackground = OnBackgroundColor,
+    onSurface = OnSurfaceColor
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    background = BackgroundColor,
+    primary = PrimaryColor,
+    secondary = SecondaryColor,
+    surface = SurfaceColor,
+    tertiary = Pink40,
+    onPrimary = OnPrimaryColor,
+    onSecondary = OnSecondaryColor,
+    onBackground = OnBackgroundColor,
+    onSurface = OnSurfaceColor
 )
+
+// CompositionLocal позволяет объявлять состояние на самом высоком уровне,
+// а затем получать к нему доступ на любых нижних уровнях
+// без необходимости передавать состояние через промежуточные дочерние элементы.
+
+val LocalSpaceTravelerColors = staticCompositionLocalOf<ColorScheme> {
+    error("No colors provided")
+}
+
+val LocalSpaceTravelerTypography = staticCompositionLocalOf<Typography> {
+    error("No font provided")
+}
+
+val LocalSpaceTravelerShape = staticCompositionLocalOf<JetSpaceTravelerShapes> {
+    error("No shapes provided")
+}
+
+
+object SpaceTravelerTheme{
+    val colorScheme: ColorScheme
+        @Composable
+        get() = LocalSpaceTravelerColors.current
+
+    val typography: Typography
+        @Composable
+        get() = LocalSpaceTravelerTypography.current
+
+    val shapes: JetSpaceTravelerShapes
+        @Composable
+        get() = LocalSpaceTravelerShape.current
+}
 
 @Composable
 fun SpaceTravelerTheme(
@@ -50,9 +86,12 @@ fun SpaceTravelerTheme(
         else -> LightColorScheme
     }
 
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
+// При вызове CompositionLocalProvider объекту ProvidableCompositionLocal передается некоторое
+// значение с помощью слова provides
+    CompositionLocalProvider(
+        LocalSpaceTravelerColors provides colorScheme,
+        LocalSpaceTravelerTypography provides typography,
+        LocalSpaceTravelerShape provides shapes,
         content = content
     )
 }
