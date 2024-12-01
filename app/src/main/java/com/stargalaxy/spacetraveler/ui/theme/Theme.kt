@@ -55,7 +55,7 @@ val LocalSpaceTravelerShape = staticCompositionLocalOf<JetSpaceTravelerShapes> {
 }
 
 
-object SpaceTravelerTheme{
+object JetSpaceTravelerTheme{
     val colorScheme: ColorScheme
         @Composable
         get() = LocalSpaceTravelerColors.current
