@@ -29,12 +29,12 @@ fun JetRatingBar(rating:Int, modifier: Modifier = Modifier){
       horizontalArrangement = Arrangement.SpaceBetween,
         modifier = modifier.padding(5.dp)
     ){
-        repeat(rating){JetStar(JetSpaceTravelerTheme.colorScheme.onSecondary, modifier)}
-        repeat(5-rating){JetStar(JetSpaceTravelerTheme.colorScheme.surface, modifier)}
+        repeat(rating){JetStar(JetSpaceTravelerTheme.colorScheme.primary, modifier)}
+        repeat(5-rating){JetStar(JetSpaceTravelerTheme.colorScheme.onSurface, modifier)}
     }
 }
 
-@Preview(showBackground = false)
+@Preview(showBackground = true)
 @Composable
 fun JetRatingBarPreview(){
     SpaceTravelerTheme{
