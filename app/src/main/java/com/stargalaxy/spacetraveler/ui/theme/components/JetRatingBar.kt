@@ -28,7 +28,7 @@ fun JetRatingBar(rating: Int, modifier: Modifier = Modifier) {
         horizontalArrangement = Arrangement.SpaceBetween,
         modifier = modifier
     ) {
-        repeat(rating) { JetStar(JetSpaceTravelerTheme.colorScheme.primary) }
+        repeat(rating) { JetStar(JetSpaceTravelerTheme.colorScheme.secondary) }
         repeat(5 - rating) { JetStar(JetSpaceTravelerTheme.colorScheme.onSurface) }
     }
 }

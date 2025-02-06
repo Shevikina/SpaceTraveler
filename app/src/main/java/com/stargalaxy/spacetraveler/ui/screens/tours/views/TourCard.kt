@@ -69,7 +69,7 @@ fun TourCard(
                         withStyle(
                             style = SpanStyle(
                                 fontSize = 18.sp,
-                                color = Color(0xFF282828)
+                                color = JetSpaceTravelerTheme.colorScheme.tertiary
                                 )
                         ) {
                             append(name)
@@ -116,7 +116,7 @@ fun TourCard(
                     .align(Alignment.TopEnd)
                     .size(84.dp, 24.dp)
                     .background(
-                        JetSpaceTravelerTheme.colorScheme.secondary,
+                        Color(0xFF56CB03),
                         RoundedCornerShape(topEnd = 14.dp, bottomStart = 8.dp)
                     ),
                 contentAlignment = Alignment.Center
