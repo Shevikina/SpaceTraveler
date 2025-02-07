@@ -2,6 +2,7 @@ package com.stargalaxy.spacetraveler.ui.screens.tour.page.views
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,7 +11,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -52,9 +52,7 @@ fun TabsCard(description: String, reviews: List<String>, modifier: Modifier = Mo
                     shape = iconButtonShape
                 )
                 .align(Alignment.TopStart)
-                .toggleable(cardModeState.value) {
-                    cardModeState.value = it
-                },
+                .clickable { cardModeState.value = true },
             contentAlignment = Alignment.TopCenter
         ) {
             Icon(
@@ -79,9 +77,7 @@ fun TabsCard(description: String, reviews: List<String>, modifier: Modifier = Mo
                     shape = iconButtonShape
                 )
                 .align(Alignment.TopEnd)
-                .toggleable(!cardModeState.value) {
-                    cardModeState.value = !it
-                }
+                .clickable { cardModeState.value = false }
         ) {
             Icon(
                 painter = painterResource(com.microsoft.fluent.mobile.icons.R.drawable.ic_fluent_book_star_24_filled),
