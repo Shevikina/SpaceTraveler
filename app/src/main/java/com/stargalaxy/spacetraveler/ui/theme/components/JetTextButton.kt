@@ -3,7 +3,9 @@ package com.stargalaxy.spacetraveler.ui.theme.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.sizeIn
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,13 +22,15 @@ fun JetTextButton(
     text: String,
     modifier: Modifier = Modifier,
     shape: RoundedCornerShape = RoundedCornerShape(24.dp), // JetSpaceTravelerTheme.shapes.dialog
+    contentPadding: PaddingValues = PaddingValues(horizontal = 24.dp, vertical = 18.dp),
     onClick: () -> Unit
 ) {
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier
             .background(JetSpaceTravelerTheme.colorScheme.secondary.copy(0.5f), shape)
-            .sizeIn(minHeight = 54.dp, minWidth = 366.dp)
+            .fillMaxWidth()
+            .padding(contentPadding)
             .clickable(onClick = onClick)
     ) {
         Text(
