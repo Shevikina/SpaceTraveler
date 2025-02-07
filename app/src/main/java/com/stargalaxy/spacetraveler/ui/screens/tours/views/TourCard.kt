@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -58,10 +59,11 @@ fun TourCard(
             AsyncImage(
                 model = imagePath,
                 contentDescription = null,
+                contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .size(64.dp)
                     .clip(JetSpaceTravelerTheme.shapes.medium)
-                    .background(Color.Red)
+                    .background(Color.Gray)
             )
             Column {
                 Text(
@@ -70,7 +72,7 @@ fun TourCard(
                             style = SpanStyle(
                                 fontSize = 18.sp,
                                 color = JetSpaceTravelerTheme.colorScheme.tertiary
-                                )
+                            )
                         ) {
                             append(name)
                         }
