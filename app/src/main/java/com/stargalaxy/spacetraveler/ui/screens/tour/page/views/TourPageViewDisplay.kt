@@ -89,6 +89,7 @@ fun TourPageViewDisplay() {
                     text = "Экологический туризм",
                     style = JetSpaceTravelerTheme.typography.bodyLarge.copy(
                         fontSize = 14.sp,
+                        lineHeight = 16.41.sp,
                         fontWeight = FontWeight.Medium,
                         color = JetSpaceTravelerTheme.colorScheme.onSurface
                     ),
