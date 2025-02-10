@@ -47,7 +47,7 @@ fun JetIconButton(
 
 @Preview(showSystemUi = true)
 @Composable
-fun JetIconButtonPreview() {
+private fun JetIconButtonPreview() {
     SpaceTravelerTheme {
         JetIconButton(
             vectorDrawableId = com.microsoft.fluent.mobile.icons.R.drawable.ic_fluent_chevron_left_16_filled,

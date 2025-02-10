@@ -129,7 +129,7 @@ fun TabsCard(description: String, reviews: List<String>, modifier: Modifier = Mo
 
 @Preview(showBackground = true)
 @Composable
-fun TabsCardPreview() {
+private fun TabsCardPreview() {
     SpaceTravelerTheme {
         Box(Modifier.padding(32.dp))
         {

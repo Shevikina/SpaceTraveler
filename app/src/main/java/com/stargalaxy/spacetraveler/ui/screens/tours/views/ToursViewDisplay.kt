@@ -104,7 +104,7 @@ fun ToursViewDisplay() {
 
 @Preview(showSystemUi = true)
 @Composable
-fun ToursViewDisplayPreview() {
+private fun ToursViewDisplayPreview() {
     SpaceTravelerTheme {
         ToursViewDisplay()
     }

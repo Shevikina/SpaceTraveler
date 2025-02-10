@@ -42,7 +42,7 @@ fun JetRoundImage(
 
 @Preview(showBackground = true, backgroundColor = 0xFFEEF4F3)
 @Composable
-fun JetRoundImagePreview() {
+private fun JetRoundImagePreview() {
     SpaceTravelerTheme {
         Box(Modifier.padding(64.dp)) {
             JetRoundImage(

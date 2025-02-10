@@ -35,7 +35,7 @@ fun JetRatingBar(rating: Int, modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun JetRatingBarPreview() {
+private fun JetRatingBarPreview() {
     SpaceTravelerTheme {
         JetRatingBar(
             rating = 3,

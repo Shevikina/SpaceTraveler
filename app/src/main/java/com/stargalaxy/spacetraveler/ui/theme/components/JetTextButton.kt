@@ -44,7 +44,7 @@ fun JetTextButton(
 
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
-fun JetGradientButtonPreview() {
+private fun JetGradientButtonPreview() {
     SpaceTravelerTheme {
         JetTextButton("Send an application") {
             println("BE SEND")

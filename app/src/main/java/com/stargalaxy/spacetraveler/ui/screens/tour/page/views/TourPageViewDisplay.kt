@@ -128,7 +128,7 @@ fun TourPageViewDisplay() {
 
 @Preview
 @Composable
-fun TourPageViewDisplayPreview() {
+private fun TourPageViewDisplayPreview() {
     SpaceTravelerTheme {
         TourPageViewDisplay()
     }

@@ -140,7 +140,7 @@ fun TourCard(
 
 @Preview
 @Composable
-fun TourCardPreview() {
+private fun TourCardPreview() {
     SpaceTravelerTheme {
         TourCard(
             name = "Живой огонь",
