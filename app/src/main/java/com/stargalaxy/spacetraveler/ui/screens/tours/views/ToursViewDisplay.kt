@@ -51,21 +51,23 @@ fun ToursViewDisplay() {
             rating = 4.1,
             reviews = 177,
             isNew = true,
-            modifier = Modifier
+            modifier = Modifier.fillMaxWidth()
         )
         TourCard(
             name = "Пирамиды стек...",
             description = "Исторический туризм",
             imagePath = "file:///android_asset/App3_Image2.jpg",
             rating = 5.0,
-            reviews = 61
+            reviews = 61,
+            modifier = Modifier.fillMaxWidth()
         )
         TourCard(
             name = "Водный мир",
             description = "Археологический туризм",
             imagePath = "file:///android_asset/App3_Image3.jpg",
             rating = 5.0,
-            reviews = 13
+            reviews = 13,
+            modifier = Modifier.fillMaxWidth()
         )
         Spacer(modifier = Modifier.width(16.dp))
         Column(

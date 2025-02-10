@@ -29,7 +29,6 @@ fun JetTextButton(
         contentAlignment = Alignment.Center,
         modifier = modifier
             .background(JetSpaceTravelerTheme.colorScheme.secondary.copy(0.5f), shape)
-            .fillMaxWidth()
             .padding(contentPadding)
             .clickable(onClick = onClick)
     ) {
@@ -46,7 +45,10 @@ fun JetTextButton(
 @Composable
 private fun JetGradientButtonPreview() {
     SpaceTravelerTheme {
-        JetTextButton("Send an application") {
+        JetTextButton(
+            text = "Send an application",
+            modifier = Modifier.fillMaxWidth()
+        ) {
             println("BE SEND")
         }
     }

@@ -80,6 +80,7 @@ fun TourPageViewDisplay() {
                 shape = JetSpaceTravelerTheme.shapes.large,
                 modifier = Modifier
                     .height(128.dp)
+                    .fillMaxWidth()
             )
             Row(
                 horizontalArrangement = Arrangement.SpaceAround,
@@ -118,7 +119,10 @@ fun TourPageViewDisplay() {
         )
         Spacer(modifier = Modifier.weight(1f))
 
-        JetTextButton(stringResource(id = com.stargalaxy.spacetraveler.R.string.send_application_button)) {
+        JetTextButton(
+            text = stringResource(id = com.stargalaxy.spacetraveler.R.string.send_application_button),
+            modifier = Modifier.fillMaxWidth()
+        ) {
             println(
                 "BE SEND"
             )

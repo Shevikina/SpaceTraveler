@@ -46,7 +46,6 @@ fun TourCard(
 ) {
     Box(
         modifier = modifier
-            .fillMaxWidth()
             .heightIn(min = 96.dp)
             .background(
                 JetSpaceTravelerTheme.colorScheme.surface,
@@ -149,7 +148,7 @@ private fun TourCardPreview() {
             rating = 4.1,
             reviews = 177,
             isNew = true,
-            modifier = Modifier
+            modifier = Modifier.fillMaxWidth()
         )
     }
 }

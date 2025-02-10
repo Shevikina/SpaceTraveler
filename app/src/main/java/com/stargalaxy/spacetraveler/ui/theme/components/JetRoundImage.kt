@@ -27,7 +27,6 @@ fun JetRoundImage(
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier
-            .fillMaxWidth()
     ) {
         AsyncImage(
             model = imagePath,
@@ -50,6 +49,7 @@ private fun JetRoundImagePreview() {
                 shape = RoundedCornerShape(64.dp), //JetSpaceTravelerTheme.shapes.large
                 modifier = Modifier
                     .height(128.dp)
+                    .fillMaxWidth()
             )
         }
     }
