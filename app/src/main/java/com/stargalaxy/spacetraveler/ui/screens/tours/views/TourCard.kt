@@ -1,6 +1,7 @@
 package com.stargalaxy.spacetraveler.ui.screens.tours.views
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -29,10 +30,10 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.stargalaxy.spacetraveler.R
 import com.stargalaxy.spacetraveler.ui.theme.JetSpaceTravelerTheme
 import com.stargalaxy.spacetraveler.ui.theme.SpaceTravelerTheme
 import com.stargalaxy.spacetraveler.ui.theme.components.JetRatingBar
-import com.stargalaxy.spacetraveler.R
 
 @Composable
 fun TourCard(
@@ -42,7 +43,8 @@ fun TourCard(
     imagePath: String, // path to tour image
     rating: Double, // tour rating based on reviews
     reviews: Int, // number of reviews about the tour
-    isNew: Boolean = false // is tour new?
+    isNew: Boolean = false, // is tour new?
+    onClick: (() -> Unit)? = null
 ) {
     Box(
         modifier = modifier
@@ -51,6 +53,11 @@ fun TourCard(
                 JetSpaceTravelerTheme.colorScheme.surface,
                 JetSpaceTravelerTheme.shapes.medium
             )
+            .let {
+                if (onClick != null) it
+                    .clip(JetSpaceTravelerTheme.shapes.medium)
+                    .clickable(onClick = onClick) else it
+            }
     ) {
         Row(
             horizontalArrangement = Arrangement.spacedBy(24.dp),

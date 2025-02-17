@@ -52,7 +52,7 @@ fun ToursViewDisplay() {
             reviews = 177,
             isNew = true,
             modifier = Modifier.fillMaxWidth()
-        )
+        ){}
         TourCard(
             name = "Пирамиды стек...",
             description = "Исторический туризм",
@@ -68,7 +68,7 @@ fun ToursViewDisplay() {
             rating = 5.0,
             reviews = 13,
             modifier = Modifier.fillMaxWidth()
-        )
+        ){}
         Spacer(modifier = Modifier.width(16.dp))
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
