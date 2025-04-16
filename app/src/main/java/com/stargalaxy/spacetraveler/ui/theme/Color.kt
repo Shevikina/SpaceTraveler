@@ -10,5 +10,3 @@ val SurfaceColor = Color(0xFFFFFFFF)
 val OnSurfaceColor = Color(0xFFA4A8B3)
 val BackgroundColor = Color(0xFFE6EFFD)
 val TertiaryColor = Color(0xFF282828)
-
-//val OnBackgroundColor = Color(0xFF071738)
