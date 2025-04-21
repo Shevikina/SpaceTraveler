@@ -1,4 +1,4 @@
-package com.stargalaxy.spacetraveler.models.view_states
+package com.stargalaxy.spacetraveler.ui.screens.tour.page.models
 
 sealed class TourPageViewState {
     data object Loading : TourPageViewState()

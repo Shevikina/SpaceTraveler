@@ -1,4 +1,4 @@
-package com.stargalaxy.spacetraveler.models.events
+package com.stargalaxy.spacetraveler.ui.screens.tour.page.models
 
 sealed class TourPageEvent {
     data class EnterScreen(val tourId: Int) : TourPageEvent()
