@@ -31,19 +31,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.stargalaxy.spacetraveler.R
+import com.stargalaxy.spacetraveler.ui.screens.tours.models.TourCardInfo
 import com.stargalaxy.spacetraveler.ui.theme.JetSpaceTravelerTheme
 import com.stargalaxy.spacetraveler.ui.theme.SpaceTravelerTheme
 import com.stargalaxy.spacetraveler.ui.theme.components.JetRatingBar
 
 @Composable
 fun TourCard(
+    tourInfo: TourCardInfo,
     modifier: Modifier = Modifier,
-    name: String, // tour name
-    description: String, //  tour description
-    imagePath: String, // path to tour image
-    rating: Double, // tour rating based on reviews
-    reviews: Int, // number of reviews about the tour
-    isNew: Boolean = false, // is tour new?
     onClick: (() -> Unit)? = null
 ) {
     Box(
@@ -65,7 +61,7 @@ fun TourCard(
             modifier = Modifier.padding(16.dp)
         ) {
             AsyncImage(
-                model = imagePath,
+                model = tourInfo.imagePath,
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
@@ -82,7 +78,7 @@ fun TourCard(
                                 color = JetSpaceTravelerTheme.colorScheme.tertiary
                             )
                         ) {
-                            append(name)
+                            append(tourInfo.name)
                         }
                         withStyle(
                             SpanStyle(
@@ -91,7 +87,7 @@ fun TourCard(
                             )
                         ) {
                             append("\n")
-                            append(description)
+                            append(tourInfo.description)
                         }
                     },
                     style = JetSpaceTravelerTheme.typography.bodyLarge.copy(
@@ -106,11 +102,11 @@ fun TourCard(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     JetRatingBar(
-                        rating.toInt(),
+                        tourInfo.rating.toInt(),
                         modifier = Modifier.height(16.dp)
                     )
                     Text(
-                        text = "$rating | $reviews Отзывов",
+                        text = "${tourInfo.rating} | ${tourInfo.reviews} Отзывов",
                         color = JetSpaceTravelerTheme.colorScheme.onSurface,
                         style = JetSpaceTravelerTheme.typography.bodyLarge.copy(
                             fontSize = 12.sp,
@@ -120,7 +116,7 @@ fun TourCard(
                 }
             }
         }
-        if (isNew) {
+        if (tourInfo.isNew) {
             Box(
                 modifier = Modifier
                     .align(Alignment.TopEnd)
@@ -149,13 +145,16 @@ fun TourCard(
 private fun TourCardPreview() {
     SpaceTravelerTheme {
         TourCard(
-            name = "Живой огонь",
-            description = "Экологический туризм",
-            imagePath = "file:///android_asset/App3_Image1.jpg",
-            rating = 4.1,
-            reviews = 177,
-            isNew = true,
-            modifier = Modifier.fillMaxWidth()
+            TourCardInfo(
+                name = "Живой огонь",
+                description = "Экологический туризм",
+                imagePath = "file:///android_asset/App3_Image1.jpg",
+                rating = 4.1,
+                reviews = 177,
+                isNew = true
+            ),
+            modifier = Modifier.fillMaxWidth(),
+            onClick = {}
         )
     }
 }
