@@ -19,6 +19,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
@@ -52,6 +53,7 @@ fun TabsCard(description: String, reviews: List<String>, modifier: Modifier = Mo
                     shape = iconButtonShape
                 )
                 .align(Alignment.TopStart)
+                .clip(iconButtonShape)
                 .clickable { cardModeState.value = true },
             contentAlignment = Alignment.TopCenter
         ) {
@@ -77,6 +79,7 @@ fun TabsCard(description: String, reviews: List<String>, modifier: Modifier = Mo
                     shape = iconButtonShape
                 )
                 .align(Alignment.TopEnd)
+                .clip(iconButtonShape)
                 .clickable { cardModeState.value = false }
         ) {
             Icon(
@@ -110,11 +113,13 @@ fun TabsCard(description: String, reviews: List<String>, modifier: Modifier = Mo
                 .padding(horizontal = 20.dp, vertical = 24.dp)
         ) {
             Text(
-                text = if (cardModeState.value) description
+                text = if (cardModeState.value and description.isNotEmpty()) description
                     .replace(".", ".\n\n")
                     .replace("!", "!\n\n")
                     .replace("?", "?\n\n")
-                else reviews.reduce { a, b -> "$a\n\n$b" },
+                else if (!cardModeState.value and reviews.isNotEmpty()) reviews
+                    .reduce { a, b -> "$a\n\n$b" }
+                else "",
                 style = JetSpaceTravelerTheme.typography.bodyLarge
                     .copy(
                         fontSize = 12.sp,

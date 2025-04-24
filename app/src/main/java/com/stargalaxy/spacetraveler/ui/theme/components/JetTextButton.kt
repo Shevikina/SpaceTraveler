@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -29,8 +30,9 @@ fun JetTextButton(
         contentAlignment = Alignment.Center,
         modifier = modifier
             .background(JetSpaceTravelerTheme.colorScheme.secondary.copy(0.5f), shape)
-            .padding(contentPadding)
+            .clip(shape)
             .clickable(onClick = onClick)
+            .padding(contentPadding)
     ) {
         Text(
             text = text,
