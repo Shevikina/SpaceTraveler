@@ -26,6 +26,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.microsoft.fluent.mobile.icons.R
+import com.stargalaxy.spacetraveler.ui.screens.tour.page.models.TourPageEvent
+import com.stargalaxy.spacetraveler.ui.screens.tour.page.models.TourPageInfo
+import com.stargalaxy.spacetraveler.ui.screens.tours.models.TourInfo
 import com.stargalaxy.spacetraveler.ui.theme.JetSpaceTravelerTheme
 import com.stargalaxy.spacetraveler.ui.theme.SpaceTravelerTheme
 import com.stargalaxy.spacetraveler.ui.theme.components.JetIconButton
@@ -34,7 +37,10 @@ import com.stargalaxy.spacetraveler.ui.theme.components.JetRoundImage
 import com.stargalaxy.spacetraveler.ui.theme.components.JetTextButton
 
 @Composable
-fun TourPageViewDisplay() {
+fun TourPageViewDisplay(
+    pageInfo: TourPageInfo,
+    dispatcher: (TourPageEvent) -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -47,12 +53,10 @@ fun TourPageViewDisplay() {
             verticalAlignment = Alignment.CenterVertically
         ) {
             JetIconButton(vectorDrawableId = R.drawable.ic_fluent_chevron_left_16_filled) {
-                println(
-                    "Clicked"
-                )
+                dispatcher.invoke(TourPageEvent.CloseScreen)
             }
             Text(
-                text = "Живой огонь",
+                text = pageInfo.coreInfo.name,
                 textAlign = TextAlign.Center,
                 style = JetSpaceTravelerTheme.typography.bodyLarge.copy(
                     fontWeight = FontWeight.Bold,
@@ -76,7 +80,7 @@ fun TourPageViewDisplay() {
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             JetRoundImage(
-                imagePath = "file:///android_asset/App3_Image1.jpg",
+                imagePath = pageInfo.coreInfo.imagePath,
                 shape = JetSpaceTravelerTheme.shapes.large,
                 modifier = Modifier
                     .height(128.dp)
@@ -88,7 +92,7 @@ fun TourPageViewDisplay() {
                 modifier = Modifier.padding(horizontal = 12.dp)
             ) {
                 Text(
-                    text = "Экологический туризм",
+                    text = pageInfo.coreInfo.description,
                     style = JetSpaceTravelerTheme.typography.bodyLarge.copy(
                         fontSize = 14.sp,
                         lineHeight = 16.41.sp,
@@ -99,21 +103,16 @@ fun TourPageViewDisplay() {
                         .weight(1f)
                         .offset(12.dp)
                 )
-                JetRatingBar(4, Modifier.height(16.dp))
+                JetRatingBar(pageInfo.coreInfo.rating.toInt(), Modifier.height(16.dp))
             }
         }
 
         Spacer(modifier = Modifier.height(32.dp))
 
         TabsCard(
-            "Раз в год на плато под мировой скалой с небес сходит живой огонь. Только самые удачливые путники видели это чудо природы! Готов ли ты стать одним из них?",
-            listOf(
-                "(5) Классно!",
-                "(4) Мне понравилось. Было интересно и живо. Иногда даже слишком живо...",
-                "(5) Кажется, я преисполнился в своем познании после этого события!",
-                "(1) Кто-то ещё ведется на эту экологическую лабуду!?"
-            ),
-            Modifier
+            description = pageInfo.pageDescription,
+            reviews = pageInfo.tourReviews,
+            modifier = Modifier
                 .height(250.dp)
                 .fillMaxWidth()
         )
@@ -122,11 +121,7 @@ fun TourPageViewDisplay() {
         JetTextButton(
             text = stringResource(id = com.stargalaxy.spacetraveler.R.string.send_application_button),
             modifier = Modifier.fillMaxWidth()
-        ) {
-            println(
-                "BE SEND"
-            )
-        }
+        ) { println("BE SEND") }
     }
 }
 
@@ -134,6 +129,24 @@ fun TourPageViewDisplay() {
 @Composable
 private fun TourPageViewDisplayPreview() {
     SpaceTravelerTheme {
-        TourPageViewDisplay()
+        TourPageViewDisplay(
+            pageInfo = TourPageInfo(
+                coreInfo = TourInfo(
+                    name = "Живой огонь",
+                    description = "Экологический туризм",
+                    imagePath = "file:///android_asset/App3_Image1.jpg",
+                    rating = 4.0,
+                    reviews = 4
+                ),
+                pageDescription = "Раз в год на плато под мировой скалой с небес сходит живой огонь. Только самые удачливые путники видели это чудо природы! Готов ли ты стать одним из них?",
+                tourReviews = listOf(
+                    "(5) Классно!",
+                    "(4) Мне понравилось. Было интересно и живо. Иногда даже слишком живо...",
+                    "(5) Кажется, я преисполнился в своем познании после этого события!",
+                    "(1) Кто-то ещё ведется на эту экологическую лабуду!?"
+                )
+            ),
+            dispatcher = {}
+        )
     }
 }
