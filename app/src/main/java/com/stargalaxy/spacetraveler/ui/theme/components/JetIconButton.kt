@@ -6,11 +6,13 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -21,7 +23,7 @@ import com.stargalaxy.spacetraveler.ui.theme.SpaceTravelerTheme
 @Composable
 fun JetIconButton(
     vectorDrawableId: Int,
-    modifier: Modifier = Modifier.size(48.dp),
+    modifier: Modifier = Modifier,
     shape: RoundedCornerShape = RoundedCornerShape(8.dp),
     contentPadding: PaddingValues = PaddingValues(12.dp),
     onClick: () -> Unit
@@ -29,12 +31,11 @@ fun JetIconButton(
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier
-            .background(
-                Color(0xFFA5A5A5).copy(0.1f),
-                shape
-            )
-            .padding(contentPadding)
+            .sizeIn(48.dp, 48.dp)
+            .background(Color(0xFFA5A5A5).copy(0.1f), shape)
+            .clip(shape)
             .clickable(onClick = onClick)
+            .padding(contentPadding)
     ) {
         Icon(
             painter = painterResource(id = vectorDrawableId),
@@ -45,7 +46,7 @@ fun JetIconButton(
     }
 }
 
-@Preview(showSystemUi = true)
+@Preview(showBackground = true)
 @Composable
 private fun JetIconButtonPreview() {
     SpaceTravelerTheme {
@@ -53,7 +54,7 @@ private fun JetIconButtonPreview() {
             vectorDrawableId = com.microsoft.fluent.mobile.icons.R.drawable.ic_fluent_chevron_left_16_filled,
             contentPadding = PaddingValues(12.dp),
             shape = RoundedCornerShape(8.dp),
-            modifier = Modifier.size(48.dp)
+            modifier = Modifier
         ) {
             println("Clicked")
         }
