@@ -1,6 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    // For kotlin 2.0.0+
+    alias(libs.plugins.compose.compiler)
+    // For navigation routes
+    kotlin("plugin.serialization") version "2.1.0"
 }
 
 android {
@@ -49,6 +53,10 @@ android {
     }
 }
 
+composeCompiler {
+    reportsDestination = layout.buildDirectory.dir("compose_compiler")
+}
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -60,11 +68,17 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
-    implementation("io.coil-kt:coil-compose:2.7.0")
-    implementation("androidx.navigation:navigation-compose:2.7.6")
-    implementation("androidx.navigation:navigation-runtime-ktx:2.7.7")
+    // Fluent
+    implementation(libs.fluent.system.icons)
+    // Coli
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network)
+    // Navigation
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.navigation.runtime)
+
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
-    implementation("com.microsoft.design:fluent-system-icons:1.1.245@aar")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
