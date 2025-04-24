@@ -61,7 +61,7 @@ fun TourCard(
             modifier = Modifier.padding(16.dp)
         ) {
             AsyncImage(
-                model = tourInfo.imagePath,
+                model = tourInfo.image,
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
@@ -87,7 +87,7 @@ fun TourCard(
                             )
                         ) {
                             append("\n")
-                            append(tourInfo.description)
+                            append(tourInfo.type)
                         }
                     },
                     style = JetSpaceTravelerTheme.typography.bodyLarge.copy(
@@ -106,7 +106,7 @@ fun TourCard(
                         modifier = Modifier.height(16.dp)
                     )
                     Text(
-                        text = "${tourInfo.rating} | ${tourInfo.reviews} Отзывов",
+                        text = "${tourInfo.rating} | ${tourInfo.reviewsCount} Отзывов",
                         color = JetSpaceTravelerTheme.colorScheme.onSurface,
                         style = JetSpaceTravelerTheme.typography.bodyLarge.copy(
                             fontSize = 12.sp,
@@ -147,11 +147,18 @@ private fun TourCardPreview() {
         TourCard(
             TourInfo(
                 name = "Живой огонь",
-                description = "Экологический туризм",
-                imagePath = "file:///android_asset/App3_Image1.jpg",
+                type = "Экологический туризм",
+                image = "file:///android_asset/App3_Image1.jpg",
                 rating = 4.1,
-                reviews = 177,
-                isNew = true
+                reviewsCount = 177,
+                isNew = true,
+                pageDescription = "Раз в год на плато под мировой скалой с небес сходит живой огонь. Только самые удачливые путники видели это чудо природы! Готов ли ты стать одним из них?",
+                tourReviews = listOf(
+                    "(5) Классно!",
+                    "(4) Мне понравилось. Было интересно и живо. Иногда даже слишком живо...",
+                    "(5) Кажется, я преисполнился в своем познании после этого события!",
+                    "(1) Кто-то ещё ведется на эту экологическую лабуду!?"
+                )
             ),
             modifier = Modifier.fillMaxWidth(),
             onClick = {}

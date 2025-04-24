@@ -27,7 +27,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.microsoft.fluent.mobile.icons.R
 import com.stargalaxy.spacetraveler.ui.screens.tour.page.models.TourPageEvent
-import com.stargalaxy.spacetraveler.ui.screens.tour.page.models.TourPageInfo
 import com.stargalaxy.spacetraveler.ui.screens.tours.models.TourInfo
 import com.stargalaxy.spacetraveler.ui.theme.JetSpaceTravelerTheme
 import com.stargalaxy.spacetraveler.ui.theme.SpaceTravelerTheme
@@ -38,7 +37,7 @@ import com.stargalaxy.spacetraveler.ui.theme.components.JetTextButton
 
 @Composable
 fun TourPageViewDisplay(
-    pageInfo: TourPageInfo,
+    tourInfo: TourInfo,
     dispatcher: (TourPageEvent) -> Unit
 ) {
     Column(
@@ -56,7 +55,7 @@ fun TourPageViewDisplay(
                 dispatcher.invoke(TourPageEvent.CloseScreen)
             }
             Text(
-                text = pageInfo.coreInfo.name,
+                text = tourInfo.name,
                 textAlign = TextAlign.Center,
                 style = JetSpaceTravelerTheme.typography.bodyLarge.copy(
                     fontWeight = FontWeight.Bold,
@@ -80,7 +79,7 @@ fun TourPageViewDisplay(
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             JetRoundImage(
-                imagePath = pageInfo.coreInfo.imagePath,
+                imagePath = tourInfo.image,
                 shape = JetSpaceTravelerTheme.shapes.large,
                 modifier = Modifier
                     .height(128.dp)
@@ -92,7 +91,7 @@ fun TourPageViewDisplay(
                 modifier = Modifier.padding(horizontal = 12.dp)
             ) {
                 Text(
-                    text = pageInfo.coreInfo.description,
+                    text = tourInfo.type,
                     style = JetSpaceTravelerTheme.typography.bodyLarge.copy(
                         fontSize = 14.sp,
                         lineHeight = 16.41.sp,
@@ -103,15 +102,15 @@ fun TourPageViewDisplay(
                         .weight(1f)
                         .offset(12.dp)
                 )
-                JetRatingBar(pageInfo.coreInfo.rating.toInt(), Modifier.height(16.dp))
+                JetRatingBar(tourInfo.rating.toInt(), Modifier.height(16.dp))
             }
         }
 
         Spacer(modifier = Modifier.height(32.dp))
 
         TabsCard(
-            description = pageInfo.pageDescription,
-            reviews = pageInfo.tourReviews,
+            description = tourInfo.pageDescription,
+            reviews = tourInfo.tourReviews,
             modifier = Modifier
                 .height(250.dp)
                 .fillMaxWidth()
@@ -130,14 +129,12 @@ fun TourPageViewDisplay(
 private fun TourPageViewDisplayPreview() {
     SpaceTravelerTheme {
         TourPageViewDisplay(
-            pageInfo = TourPageInfo(
-                coreInfo = TourInfo(
-                    name = "Живой огонь",
-                    description = "Экологический туризм",
-                    imagePath = "file:///android_asset/App3_Image1.jpg",
-                    rating = 4.0,
-                    reviews = 4
-                ),
+            tourInfo = TourInfo(
+                name = "Живой огонь",
+                type = "Экологический туризм",
+                image = "file:///android_asset/App3_Image1.jpg",
+                rating = 4.0,
+                reviewsCount = 4,
                 pageDescription = "Раз в год на плато под мировой скалой с небес сходит живой огонь. Только самые удачливые путники видели это чудо природы! Готов ли ты стать одним из них?",
                 tourReviews = listOf(
                     "(5) Классно!",
