@@ -31,14 +31,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.stargalaxy.spacetraveler.R
-import com.stargalaxy.spacetraveler.ui.screens.tours.models.TourCardInfo
+import com.stargalaxy.spacetraveler.ui.screens.tours.models.TourInfo
 import com.stargalaxy.spacetraveler.ui.theme.JetSpaceTravelerTheme
 import com.stargalaxy.spacetraveler.ui.theme.SpaceTravelerTheme
 import com.stargalaxy.spacetraveler.ui.theme.components.JetRatingBar
 
 @Composable
 fun TourCard(
-    tourInfo: TourCardInfo,
+    tourInfo: TourInfo,
     modifier: Modifier = Modifier,
     onClick: (() -> Unit)? = null
 ) {
@@ -145,7 +145,7 @@ fun TourCard(
 private fun TourCardPreview() {
     SpaceTravelerTheme {
         TourCard(
-            TourCardInfo(
+            TourInfo(
                 name = "Живой огонь",
                 description = "Экологический туризм",
                 imagePath = "file:///android_asset/App3_Image1.jpg",

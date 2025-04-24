@@ -20,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.stargalaxy.spacetraveler.R
-import com.stargalaxy.spacetraveler.ui.screens.tours.models.TourCardInfo
+import com.stargalaxy.spacetraveler.ui.screens.tours.models.TourInfo
 import com.stargalaxy.spacetraveler.ui.screens.tours.models.ToursEvent
 import com.stargalaxy.spacetraveler.ui.theme.JetSpaceTravelerTheme
 import com.stargalaxy.spacetraveler.ui.theme.SpaceTravelerTheme
@@ -28,7 +28,7 @@ import com.stargalaxy.spacetraveler.ui.theme.SpaceTravelerTheme
 @Composable
 fun ToursViewDisplay(dispatcher: (ToursEvent) -> Unit) {
     val tourList = listOf(
-        TourCardInfo(
+        TourInfo(
             name = "Живой огонь",
             description = "Экологический туризм",
             imagePath = "file:///android_asset/App3_Image1.jpg",
@@ -36,14 +36,14 @@ fun ToursViewDisplay(dispatcher: (ToursEvent) -> Unit) {
             reviews = 177,
             isNew = true
         ),
-        TourCardInfo(
+        TourInfo(
             name = "Пирамиды стек...",
             description = "Исторический туризм",
             imagePath = "file:///android_asset/App3_Image2.jpg",
             rating = 5.0,
             reviews = 61
         ),
-        TourCardInfo(
+        TourInfo(
             name = "Водный мир",
             description = "Археологический туризм",
             imagePath = "file:///android_asset/App3_Image3.jpg",
