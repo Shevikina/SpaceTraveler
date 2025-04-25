@@ -1,6 +1,7 @@
 package com.stargalaxy.spacetraveler.ui.screens.tours.models
 
 data class TourInfo(
+    val id: Int,
     val name: String,
     val type: String,
     val image: String,

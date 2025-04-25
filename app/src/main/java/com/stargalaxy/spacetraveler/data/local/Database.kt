@@ -5,6 +5,7 @@ import com.stargalaxy.spacetraveler.ui.screens.tours.models.TourInfo
 object Database {
     val tourList = listOf(
         TourInfo(
+            id = 0,
             name = "Живой огонь",
             type = "Экологический туризм",
             image = "file:///android_asset/App3_Image1.jpg",
@@ -20,6 +21,7 @@ object Database {
             )
         ),
         TourInfo(
+            id = 1,
             name = "Пирамиды стек...",
             type = "Исторический туризм",
             image = "file:///android_asset/App3_Image2.jpg",
@@ -28,6 +30,7 @@ object Database {
             pageDescription = ""
         ),
         TourInfo(
+            id = 2,
             name = "Водный мир",
             type = "Археологический туризм",
             image = "file:///android_asset/App3_Image3.jpg",

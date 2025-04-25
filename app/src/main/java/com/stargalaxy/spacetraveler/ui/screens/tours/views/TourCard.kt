@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.stargalaxy.spacetraveler.R
+import com.stargalaxy.spacetraveler.data.local.Database
 import com.stargalaxy.spacetraveler.ui.screens.tours.models.TourInfo
 import com.stargalaxy.spacetraveler.ui.theme.JetSpaceTravelerTheme
 import com.stargalaxy.spacetraveler.ui.theme.SpaceTravelerTheme
@@ -145,21 +146,7 @@ fun TourCard(
 private fun TourCardPreview() {
     SpaceTravelerTheme {
         TourCard(
-            TourInfo(
-                name = "Живой огонь",
-                type = "Экологический туризм",
-                image = "file:///android_asset/App3_Image1.jpg",
-                rating = 4.1,
-                reviewsCount = 177,
-                isNew = true,
-                pageDescription = "Раз в год на плато под мировой скалой с небес сходит живой огонь. Только самые удачливые путники видели это чудо природы! Готов ли ты стать одним из них?",
-                tourReviews = listOf(
-                    "(5) Классно!",
-                    "(4) Мне понравилось. Было интересно и живо. Иногда даже слишком живо...",
-                    "(5) Кажется, я преисполнился в своем познании после этого события!",
-                    "(1) Кто-то ещё ведется на эту экологическую лабуду!?"
-                )
-            ),
+            tourInfo = Database.tourList[0],
             modifier = Modifier.fillMaxWidth(),
             onClick = {}
         )

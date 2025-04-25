@@ -22,7 +22,7 @@ fun NavHostScreen(modifier: Modifier = Modifier) {
         composable<NavScreen.Tours> { ToursScreen(navController) }
         composable<NavScreen.TourPage> { entry ->
             val page = entry.toRoute<NavScreen.TourPage>()
-            TourPageScreen(navController, Database.tourList[page.tourId])
+            TourPageScreen(navController, Database.tourList.first { it.id == page.tourId })
         }
     }
 }

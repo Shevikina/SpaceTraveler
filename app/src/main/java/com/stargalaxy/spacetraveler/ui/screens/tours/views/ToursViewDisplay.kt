@@ -47,11 +47,11 @@ fun ToursViewDisplay(dispatcher: (ToursEvent) -> Unit) {
         )
         Spacer(modifier = Modifier.width(16.dp))
 
-        Database.tourList.forEachIndexed { idx, tourInfo ->
+        Database.tourList.forEach { tourInfo ->
             TourCard(
                 tourInfo,
                 modifier = Modifier.fillMaxWidth(),
-                onClick = { dispatcher.invoke(ToursEvent.OpenTourPageScreen(idx)) }
+                onClick = { dispatcher.invoke(ToursEvent.OpenTourPageScreen(tourInfo.id)) }
             )
         }
 
@@ -94,6 +94,6 @@ fun ToursViewDisplay(dispatcher: (ToursEvent) -> Unit) {
 @Composable
 private fun ToursViewDisplayPreview() {
     SpaceTravelerTheme {
-        ToursViewDisplay() {}
+        ToursViewDisplay {}
     }
 }
