@@ -1,4 +1,4 @@
-package com.stargalaxy.spacetraveler.local
+package com.stargalaxy.spacetraveler.data.local
 
 import com.stargalaxy.spacetraveler.ui.screens.tours.models.TourInfo
 

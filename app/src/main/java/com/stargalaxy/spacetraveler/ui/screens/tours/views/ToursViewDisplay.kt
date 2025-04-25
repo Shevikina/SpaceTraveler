@@ -20,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.stargalaxy.spacetraveler.R
-import com.stargalaxy.spacetraveler.local.Database
+import com.stargalaxy.spacetraveler.data.local.Database
 import com.stargalaxy.spacetraveler.ui.screens.tours.models.ToursEvent
 import com.stargalaxy.spacetraveler.ui.theme.JetSpaceTravelerTheme
 import com.stargalaxy.spacetraveler.ui.theme.SpaceTravelerTheme

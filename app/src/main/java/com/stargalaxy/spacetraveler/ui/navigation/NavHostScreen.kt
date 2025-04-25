@@ -7,7 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
-import com.stargalaxy.spacetraveler.local.Database
+import com.stargalaxy.spacetraveler.data.local.Database
 import com.stargalaxy.spacetraveler.ui.screens.tour.page.TourPageScreen
 import com.stargalaxy.spacetraveler.ui.screens.tours.ToursScreen
 
