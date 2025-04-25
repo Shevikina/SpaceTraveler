@@ -20,13 +20,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.stargalaxy.spacetraveler.R
-import com.stargalaxy.spacetraveler.ui.screens.tours.models.TourInfo
+import com.stargalaxy.spacetraveler.local.Database
 import com.stargalaxy.spacetraveler.ui.screens.tours.models.ToursEvent
 import com.stargalaxy.spacetraveler.ui.theme.JetSpaceTravelerTheme
 import com.stargalaxy.spacetraveler.ui.theme.SpaceTravelerTheme
 
 @Composable
-fun ToursViewDisplay(tourList: List<TourInfo>, dispatcher: (ToursEvent) -> Unit) {
+fun ToursViewDisplay(dispatcher: (ToursEvent) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -47,7 +47,7 @@ fun ToursViewDisplay(tourList: List<TourInfo>, dispatcher: (ToursEvent) -> Unit)
         )
         Spacer(modifier = Modifier.width(16.dp))
 
-        tourList.forEachIndexed { idx, tourInfo ->
+        Database.tourList.forEachIndexed { idx, tourInfo ->
             TourCard(
                 tourInfo,
                 modifier = Modifier.fillMaxWidth(),
@@ -94,6 +94,6 @@ fun ToursViewDisplay(tourList: List<TourInfo>, dispatcher: (ToursEvent) -> Unit)
 @Composable
 private fun ToursViewDisplayPreview() {
     SpaceTravelerTheme {
-        ToursViewDisplay(emptyList()) {}
+        ToursViewDisplay() {}
     }
 }
